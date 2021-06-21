@@ -12,6 +12,7 @@ Show new drowing by tapping on the button
 - UIBezierPath
 - .translate(by:)
 - .rotate()
+- strokePath()
  ## Project Screen Shots
 <img src="TapForDrowing/Screen1.png" width="350"><img src="TapForDrowing/Screen2.png" width="350">
 <img src="TapForDrowing/Screen3.png" width="350"><img src="TapForDrowing/Screen4.png" width="350">
