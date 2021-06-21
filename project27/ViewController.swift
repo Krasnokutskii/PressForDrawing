@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        drawClock()
+        drawRectangle()
         // Do any additional setup after loading the view.
     }
 
@@ -39,42 +39,40 @@ class ViewController: UIViewController {
             drawLines()
         case 4:
             drawImagesAndText()
-        case 6:
-            drawClock()
         default:
             break
         }
     }
     
     
-    func drawClock(){
-            let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
-        
-        let image = renderer.image{context in
-            let rectangle = CGRect(x: 0, y: 0, width: 512, height: 512).insetBy(dx: 10, dy: 10)
-            let hourHandLength = rectangle.width/2 * 0.2
-            let minutHandLength = rectangle.width/2 * 0.75
-            // gray circle
-            context.cgContext.addEllipse(in: rectangle)
-            context.cgContext.setFillColor(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1).cgColor)
-            //context.cgContext.fillPath()
-            
-            //stroke
-            context.cgContext.setLineWidth(15)
-            context.cgContext.setStrokeColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1).cgColor)
-           // context.cgContext.drawPath(using: .fillStroke)
-            
-            //clock hands
-           // context.cgContext.translateBy(x: rectangle.midX, y: rectangle.midY)
-            //context.cgContext.rotate(by: .pi/2)
-            context.cgContext.addLines(between: [CGPoint(x: rectangle.midX, y: rectangle.midY),CGPoint(x: rectangle.midX + (minutHandLength * minutHandLength)*cos(.pi/2), y: rectangle.midY + (minutHandLength * minutHandLength)*sin(.pi/2))])
-           // context.cgContext.addLine(to: CGPoint(x: rectangle.midX + (minutHandLength * minutHandLength)*cos(.pi/2), y: rectangle.midY + (minutHandLength * minutHandLength)*sin(.pi/2)))
-            context.cgContext.setStrokeColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1).cgColor)
-            context.cgContext.drawPath(using: .fillStroke)
-            
-        }
-        imageView.image = image
-    }
+//    func drawClock(){
+//            let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
+//
+//        let image = renderer.image{context in
+//            let rectangle = CGRect(x: 0, y: 0, width: 512, height: 512).insetBy(dx: 10, dy: 10)
+//            let hourHandLength = rectangle.width/2 * 0.2
+//            let minutHandLength = rectangle.width/2 * 0.75
+//            // gray circle
+//            context.cgContext.addEllipse(in: rectangle)
+//            context.cgContext.setFillColor(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1).cgColor)
+//            //context.cgContext.fillPath()
+//
+//            //stroke
+//            context.cgContext.setLineWidth(15)
+//            context.cgContext.setStrokeColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1).cgColor)
+//           // context.cgContext.drawPath(using: .fillStroke)
+//
+//            //clock hands
+//           // context.cgContext.translateBy(x: rectangle.midX, y: rectangle.midY)
+//            //context.cgContext.rotate(by: .pi/2)
+//            context.cgContext.addLines(between: [CGPoint(x: rectangle.midX, y: rectangle.midY),CGPoint(x: rectangle.midX + (minutHandLength * minutHandLength)*cos(.pi/2), y: rectangle.midY + (minutHandLength * minutHandLength)*sin(.pi/2))])
+//           // context.cgContext.addLine(to: CGPoint(x: rectangle.midX + (minutHandLength * minutHandLength)*cos(.pi/2), y: rectangle.midY + (minutHandLength * minutHandLength)*sin(.pi/2)))
+//            context.cgContext.setStrokeColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1).cgColor)
+//            context.cgContext.drawPath(using: .fillStroke)
+//
+//        }
+//        imageView.image = image
+//    }
     
     func drawImagesAndText(){
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
@@ -87,7 +85,7 @@ class ViewController: UIViewController {
                 .paragraphStyle: paragraphStyle
             ]
             
-            let string = "The best-laid schemes o'\nmice an' men gang aft agley"
+            let string = "The best text style of the best, of the best"
             let attrebutedString = NSAttributedString(string: string, attributes: attrs)
             
             attrebutedString.draw(with: CGRect(x: 32, y: 32, width: 448, height: 448), options: .usesLineFragmentOrigin, context: nil)
